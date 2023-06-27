@@ -9,11 +9,11 @@ test("Drag and drop a box item", async function ({ page }) {
   const boxAContentBefore = await boxA.textContent();
   const boxBContentBefore = await boxB.textContent();
 
-  await boxA.dragTo(boxA);
+  await boxA.dragTo(boxB);
 
   const boxAContentAfter = await boxA.textContent();
   const boxBContentAfter = await boxB.textContent();
 
-  await expect(boxAContentBefore === boxBContentAfter).toBeTruthy();
-  await expect(boxBContentBefore === boxAContentAfter).toBeTruthy();
+  expect(boxAContentBefore === boxBContentAfter).toBeTruthy();
+  expect(boxBContentBefore === boxAContentAfter).toBeTruthy();
 });
